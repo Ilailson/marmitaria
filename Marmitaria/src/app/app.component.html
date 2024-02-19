@@ -1,10 +1,13 @@
-<app-header></app-header>
+<!-- 3 receber event emiter
+Criar o metodo OnNavigateno pai -->
+<app-header (featureSelected)="OnNavigate($event)" ></app-header>
 
-<div class="container" style="background-color: aqua;">
+<div class="container">
   <div class="row">
     <div class="col-12">
-      <app-packages></app-packages>
-      <app-food-list></app-food-list>
+      <!-- codição para mostrar a pagina -->
+      <app-packages *ngIf="loadedFeature=='packages'"></app-packages>
+      <app-food-list *ngIf="loadedFeature=='food-list'"></app-food-list>
     </div>
   </div>
 </div>
