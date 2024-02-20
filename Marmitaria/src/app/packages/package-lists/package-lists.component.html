@@ -6,8 +6,8 @@
 <div class="row">
     <div class="col-12">
         <app-package-item 
-            *ngFor="let package of packages">
-            [package] = "package"
+            *ngFor="let package of packages"
+            [package]="package">
         </app-package-item>
     </div>
 </div>

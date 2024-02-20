@@ -10,5 +10,12 @@ export class PackageItemComponent {
 
 @Input() package!: Package;
 
+constructor() {
+
+}
+
+ngOnInit(){
+  
+}
 
 }
