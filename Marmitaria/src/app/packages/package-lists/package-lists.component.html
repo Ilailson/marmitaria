@@ -1,3 +1,4 @@
+<!-- pai -->
 <div class="row mb-2">
     <div class="col-12">
         <button class="btn btn-success">Nova Marmita</button>
@@ -7,7 +8,8 @@
     <div class="col-12">
         <app-package-item 
             *ngFor="let package of packages"
-            [package]="package">
+            [package]="package"
+            (packageSelected)="onPackageSelected(package)">
         </app-package-item>
     </div>
 </div>
