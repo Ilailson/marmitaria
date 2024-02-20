@@ -5,20 +5,9 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <a href="#" class="list-group-item clearfix" *ngFor="let package of packages">
-            <div class="float-start">
-                <h4 class="list-group-item-heading">{{ package.name}}</h4>
-                <p class="list-group-item-text">{{ package.description}}</p>
-            </div>
-            <div class="float-end">
-                <img 
-                    src="{{ package.imagePath }}" 
-                    [src]="package.imagePath"
-                    alt="{{ package.name}}" 
-                    class="img-responsive" 
-                    style="max-height: 50px;">
-            </div>
-        </a>
-        <!-- <app-package-item></app-package-item> -->
+        <app-package-item 
+            *ngFor="let package of packages">
+            [package] = "package"
+        </app-package-item>
     </div>
 </div>
