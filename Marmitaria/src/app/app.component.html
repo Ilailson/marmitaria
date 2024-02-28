@@ -1,10 +1,13 @@
-<app-header></app-header>
+<!-- ($event) Recebendo string componente filho  -->
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 
-<div class="container" style="background-color: aqua;">
+<div class="container">
   <div class="row">
     <div class="col-12">
-      <app-packages></app-packages>
-      <app-food-list></app-food-list>
+
+      <!-- definindo quem mostrado -->
+      <app-packages *ngIf="loadedFeature == 'packages'"></app-packages>
+      <app-food-list *ngIf="loadedFeature =='food-list'"></app-food-list>
     </div>
   </div>
 </div>
