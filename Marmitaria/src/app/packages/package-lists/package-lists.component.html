@@ -1,3 +1,4 @@
+<!-- ESSE É UM COMPONENTE PAI -->
 <div class="row mb-2">
     <div class="col-12">
         <button class="btn btn-success">Nova Marmita</button>
@@ -5,20 +6,9 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <a href="#" class="list-group-item clearfix" *ngFor="let package of packages">
-            <div class="float-start">
-                <h4 class="list-group-item-heading">{{ package.name}}</h4>
-                <p class="list-group-item-text">{{ package.description}}</p>
-            </div>
-            <div class="float-end">
-                <img 
-                    src="{{ package.imagePath }}" 
-                    [src]="package.imagePath"
-                    alt="{{ package.name}}" 
-                    class="img-responsive" 
-                    style="max-height: 50px;">
-            </div>
-        </a>
-        <!-- <app-package-item></app-package-item> -->
+        <app-package-item 
+            *ngFor="let packageElement of packages"
+            [package]="packageElement"
+            ></app-package-item>
     </div>
 </div>
