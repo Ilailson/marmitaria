@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Package } from './package.model';
 
 @Component({
   selector: 'app-packages',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./packages.component.css']
 })
 export class PackagesComponent {
+  selectedPackage !: Package;
 
 }

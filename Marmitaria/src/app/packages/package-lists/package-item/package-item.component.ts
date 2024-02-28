@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Package } from '../../package.model';
 
 @Component({
@@ -8,4 +8,11 @@ import { Package } from '../../package.model';
 })
 export class PackageItemComponent {
   @Input() package!: Package;
+  // sem retorno - disparar evento
+  @Output() packageSelected = new EventEmitter<void>()
+
+
+  onSelected(){
+    this.packageSelected.emit();
+  }
 }

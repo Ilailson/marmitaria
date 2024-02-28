@@ -9,6 +9,7 @@
         <app-package-item 
             *ngFor="let packageElement of packages"
             [package]="packageElement"
+            (packageSelected)="onPackageSelected(packageElement)"
             ></app-package-item>
     </div>
 </div>
