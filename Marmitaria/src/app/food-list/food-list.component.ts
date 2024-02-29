@@ -13,4 +13,8 @@ export class FoodListComponent {
     new Food('Arroz',25)
   ];
 
+  onFoodAdded(food: Food){
+    this.foodList.push(food);
+  }
+
 }
