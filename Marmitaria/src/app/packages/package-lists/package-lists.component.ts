@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { Package } from '../package.model';
 import { PackageService } from '../package.service';
 
@@ -11,18 +11,10 @@ export class PackageListsComponent {
 
   packages?: Package[];
 
-@Output() packageWasSelected = new EventEmitter<Package>();
-
 constructor(private packageService: PackageService){}
 
 ngOnInit(): void {
   this.packages = this.packageService.getPackages();
-}
-
-// recebendo marmita do tip package
-onPackageSelected(packageSelected: Package)
-{
-  this.packageWasSelected.emit(packageSelected)
 }
 
 }

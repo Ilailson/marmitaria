@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Package } from '../../package.model';
+import { PackageService } from '../../package.service';
 
 @Component({
   selector: 'app-package-item',
@@ -8,11 +9,12 @@ import { Package } from '../../package.model';
 })
 export class PackageItemComponent {
   @Input() package!: Package;
-  // sem retorno - disparar evento
-  @Output() packageSelected = new EventEmitter<void>()
 
-
-  onSelected(){
-    this.packageSelected.emit();
+  constructor(private packageService: PackageService){
   }
+  onSelected(){
+    this.packageService.packageSelected.emit(this.package);
+  }
+
+ 
 }
