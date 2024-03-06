@@ -40,7 +40,11 @@
 <div class="row">
     <div class="row">
         <div class="col-12">
-            Ingredientes
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let ingredient of  packageSelected.ingredientes">
+                    {{ ingredient.name }} ({{ ingredient.amout }})
+                </li>
+            </ul>
         </div>
     </div>
 </div>
