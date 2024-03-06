@@ -1,20 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Food } from '../shared/food.model';
+import { FoodListService } from './food-list.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
-export class FoodListComponent {
-  foodList: Food [] = [
-    new Food('Bife',19),
-    new Food('Fraudinha',10),
-    new Food('Arroz',25)
-  ];
+export class FoodListComponent implements OnInit, OnDestroy {
+  foodList!: Food [] ;
+  subscription: Subscription = new Subscription();
 
-  onFoodAdded(food: Food){
-    this.foodList.push(food);
+constructor(private foodListService: FoodListService){}
+
+  ngOnInit(): void {
+    this.foodList = this.foodListService.getFoods()
+
+    this.subscription = this.foodListService.foodsChanged.subscribe((foods: Food[])=>{
+      this.foodList = foods;
+    })
   }
+
+  // envitando problema - memoria
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 
 }

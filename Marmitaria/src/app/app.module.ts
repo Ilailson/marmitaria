@@ -10,6 +10,7 @@ import { PackageItemComponent } from './packages/package-lists/package-item/pack
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodEditComponent } from './food-list/food-edit/food-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { FoodListService } from './food-list/food-list.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [FoodListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// poderia ser colocado no avô ou pai FoodListService
